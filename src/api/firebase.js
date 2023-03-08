@@ -68,7 +68,7 @@ async function removeEntryById(collectionName, id) {
   await deleteDoc(doc(db, collectionName, id));
 }
 
-async function updateEntry(collectionName, entryId, newEntryData) {
+async function updateEntry(collectionName, entryId, { id, ...newEntryData }) {
   await setDoc(doc(db, collectionName, entryId), newEntryData);
   const getRes = await getDoc(doc(db, collectionName, entryId));
   return { id: entryId, ...getRes.data() };

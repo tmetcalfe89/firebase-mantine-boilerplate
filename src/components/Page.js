@@ -9,6 +9,7 @@ import Navbar from "components/Navbar";
 import ActionIcon from "components/ActionIcon";
 import dims from "data/dims";
 import colorSchemes from "data/colorSchemes";
+import project from "data/project";
 
 export default function Page({ sideNav, topNav, logo, children }) {
   const { colorScheme, toggleColorScheme } = useMantineColorScheme();
@@ -24,7 +25,10 @@ export default function Page({ sideNav, topNav, logo, children }) {
             px={dims.headerPadding}
             position="apart"
           >
-            {logo}
+            <Group>
+              <span>{logo}</span>
+              <span>{project.name}</span>
+            </Group>
             <Group>
               {topNav}
               <ActionIcon

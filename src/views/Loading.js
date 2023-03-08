@@ -1,3 +1,5 @@
+import AppPage from "features/AppPage";
+
 export default function Loading() {
-  return <div>Loading...</div>;
+  return <AppPage loading={true} />;
 }

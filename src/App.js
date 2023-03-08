@@ -1,5 +1,6 @@
 import AppWrapper from "components/AppWrapper";
 import { useAuthState } from "react-firebase-hooks/auth";
+import { BrowserRouter } from "react-router-dom";
 import { auth } from "./api/firebase";
 import Loading from "./views/Loading";
 import Public from "./views/Public";
@@ -21,8 +22,10 @@ function App() {
 
 export default function WrappedApp() {
   return (
-    <AppWrapper>
-      <App />
-    </AppWrapper>
+    <BrowserRouter>
+      <AppWrapper>
+        <App />
+      </AppWrapper>
+    </BrowserRouter>
   );
 }

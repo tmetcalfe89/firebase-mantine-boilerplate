@@ -1,10 +1,10 @@
-import { Image, useMantineColorScheme } from "@mantine/core";
+import { Image, LoadingOverlay, useMantineColorScheme } from "@mantine/core";
 import Page from "components/Page";
 import colorSchemes from "data/colorSchemes";
 import dims from "data/dims";
 import project from "data/project";
 
-export default function AppPage(props) {
+export default function AppPage({ loading, children, ...props }) {
   const { colorScheme } = useMantineColorScheme();
   return (
     <Page
@@ -20,6 +20,9 @@ export default function AppPage(props) {
         />
       }
       {...props}
-    />
+    >
+      {children}
+      <LoadingOverlay visible={loading} overlayBlur={2} />
+    </Page>
   );
 }
