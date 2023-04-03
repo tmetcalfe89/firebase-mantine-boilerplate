@@ -17,7 +17,7 @@ import { IconMenu } from "@tabler/icons-react";
 
 export default function Page({ sideNav, topNav, logo, children }) {
   const { colorScheme, toggleColorScheme } = useMantineColorScheme();
-  const [drawerOpen, { on: openDrawer, off: closeDrawer }] = useBoolean(true);
+  const [drawerOpen, { on: openDrawer, off: closeDrawer }] = useBoolean(false);
   const hideNavbar = useMediaQuery(
     `(max-width: ${Math.floor(dims.navbarWidth * 2.5)}px)`
   );
@@ -60,6 +60,7 @@ export default function Page({ sideNav, topNav, logo, children }) {
             theme.colorScheme === colorSchemes.dark.name
               ? colorSchemes.dark.backgroundColor(theme)
               : colorSchemes.light.backgroundColor(theme),
+          paddingLeft: hideNavbar ? "1em" : undefined,
         },
       })}
     >
